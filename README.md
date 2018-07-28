@@ -1,5 +1,11 @@
 <h1 align="center">
 
+
+<p align="center">
+  <img src="https://github.com/Tapadoo/Alerter/raw/master/documentation/alert_default.gif" />
+</p>
+
+
 <p align="center">
   <a href="https://www.npmjs.com/package/react-native-notification-banner"><img src="http://img.shields.io/npm/v/react-native-notification-banner.svg?style=flat" /></a>
   <a href="https://github.com/prscX/react-native-notification-banner/pulls"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" /></a>
@@ -19,7 +25,6 @@ A simple lightweight dropdown banner library using creates native capabilities
 
 | **[Tapadoo/Alerter](https://github.com/Tapadoo/Alerter)**             |
 | ----------------- |
-| <img src="https://github.com/Tapadoo/Alerter/raw/master/documentation/alert_default.gif" />                  |
 
 
 #### iOS
@@ -38,7 +43,13 @@ A simple lightweight dropdown banner library using creates native capabilities
 
 - **iOS**
 
-	- After `react-native link react-native-notification-banner`, please verify node_modules/react-native-notification-banner/ios/ contains Pods folder. If does not exist please execute `pod install` command on `node_modules/react-native-notification-banner/ios/`, if any error => try `pod repo update` then `pod install`
+  - After `react-native link react-native-notification-banner`, please verify `node_modules/react-native-notification-banner/ios/` contains `Pods` folder. If does not exist please execute `pod install` command on `node_modules/react-native-notification-banner/ios/`, if any error => try `pod repo update` then `pod install`
+  - After verification, open your project and create a folder 'RNNotificationBanner' under Libraries.
+  - Drag `node_modules/react-native-notification-banner/ios/pods/Pods.xcodeproject` into RNNotificationBanner, as well as the RNNotificationBanner.xcodeproject if it does not exist.
+  - Add the `BRYXBanner.framework` into your project's `Embedded Binaries` and make sure the framework is also in linked libraries.
+  - Go to your project's `Build Settings -> Frameworks Search Path` and add `${BUILT_PRODUCTS_DIR}/BRYXBanner` non-recursive.
+
+  - Now build your iOS app through Xcode
 
 - **Android**
 

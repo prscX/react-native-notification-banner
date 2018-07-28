@@ -1,6 +1,6 @@
 {
   "name": "react-native-notification-banner",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "ReactNative: Native Notification Banner",
   "main": "RNNotificationBanner.js",
   "repository": {
