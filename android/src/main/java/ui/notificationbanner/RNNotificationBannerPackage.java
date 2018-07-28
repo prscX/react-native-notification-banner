@@ -1,5 +1,5 @@
 
-package com.reactlibrary;
+package ui.notificationbanner;
 
 import java.util.Arrays;
 import java.util.Collections;

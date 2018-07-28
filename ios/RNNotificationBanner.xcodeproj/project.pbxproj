@@ -7,8 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A79F11730BD61F5DDE09C915 /* Pods_RNNotificationBanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E15E95BC5E4144B21B72EBC /* Pods_RNNotificationBanner.framework */; };
 		B3E7B58A1CC2AC0600A0062D /* RNNotificationBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNNotificationBanner.m */; };
+		CE91FE2020FF505800EBFE38 /* BRYXBanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE91FE1420FF466000EBFE38 /* BRYXBanner.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CE91FE1320FF466000EBFE38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE91FE0E20FF465F00EBFE38 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A26863DF0C616A095B0A0416B8DCE40;
+			remoteInfo = BRYXBanner;
+		};
+		CE91FE1520FF466000EBFE38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE91FE0E20FF465F00EBFE38 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E2A083EB519063A23AF34451A1AC72AE;
+			remoteInfo = "Pods-RNNotificationBanner";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		58B511D91A9E6C8500147676 /* CopyFiles */ = {
@@ -24,8 +43,12 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libRNNotificationBanner.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNNotificationBanner.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E15E95BC5E4144B21B72EBC /* Pods_RNNotificationBanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RNNotificationBanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E7B5881CC2AC0600A0062D /* RNNotificationBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNNotificationBanner.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RNNotificationBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNNotificationBanner.m; sourceTree = "<group>"; };
+		CE91FE0E20FF465F00EBFE38 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
+		DAEFF6CE0778ECC72D0083B4 /* Pods-RNNotificationBanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNNotificationBanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RNNotificationBanner/Pods-RNNotificationBanner.debug.xcconfig"; sourceTree = "<group>"; };
+		F3436422B99CC0033D361FCB /* Pods-RNNotificationBanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNNotificationBanner.release.xcconfig"; path = "Pods/Target Support Files/Pods-RNNotificationBanner/Pods-RNNotificationBanner.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +56,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE91FE2020FF505800EBFE38 /* BRYXBanner.framework in Frameworks */,
+				A79F11730BD61F5DDE09C915 /* Pods_RNNotificationBanner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,7 +78,36 @@
 				B3E7B5881CC2AC0600A0062D /* RNNotificationBanner.h */,
 				B3E7B5891CC2AC0600A0062D /* RNNotificationBanner.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
+				A3F88F03550A5F6690C397F1 /* Frameworks */,
+				834CAEC332B789E03F54FF43 /* Pods */,
 			);
+			sourceTree = "<group>";
+		};
+		834CAEC332B789E03F54FF43 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DAEFF6CE0778ECC72D0083B4 /* Pods-RNNotificationBanner.debug.xcconfig */,
+				F3436422B99CC0033D361FCB /* Pods-RNNotificationBanner.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A3F88F03550A5F6690C397F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE91FE0E20FF465F00EBFE38 /* Pods.xcodeproj */,
+				8E15E95BC5E4144B21B72EBC /* Pods_RNNotificationBanner.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE91FE0F20FF465F00EBFE38 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CE91FE1420FF466000EBFE38 /* BRYXBanner.framework */,
+				CE91FE1620FF466000EBFE38 /* Pods_RNNotificationBanner.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -63,6 +117,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RNNotificationBanner" */;
 			buildPhases = (
+				8C8788EB1496FFC1BF94F2B2 /* [CP] Check Pods Manifest.lock */,
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
 				58B511D91A9E6C8500147676 /* CopyFiles */,
@@ -100,12 +155,56 @@
 			mainGroup = 58B511D21A9E6C8500147676;
 			productRefGroup = 58B511D21A9E6C8500147676;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = CE91FE0F20FF465F00EBFE38 /* Products */;
+					ProjectRef = CE91FE0E20FF465F00EBFE38 /* Pods.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				58B511DA1A9E6C8500147676 /* RNNotificationBanner */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		CE91FE1420FF466000EBFE38 /* BRYXBanner.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = BRYXBanner.framework;
+			remoteRef = CE91FE1320FF466000EBFE38 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CE91FE1620FF466000EBFE38 /* Pods_RNNotificationBanner.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_RNNotificationBanner.framework;
+			remoteRef = CE91FE1520FF466000EBFE38 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8C8788EB1496FFC1BF94F2B2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RNNotificationBanner-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		58B511D71A9E6C8500147676 /* Sources */ = {
@@ -202,9 +301,10 @@
 		};
 		58B511F01A9E6C8500147676 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAEFF6CE0778ECC72D0083B4 /* Pods-RNNotificationBanner.debug.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
-				"$(inherited)",
+					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
@@ -218,6 +318,7 @@
 		};
 		58B511F11A9E6C8500147676 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3436422B99CC0033D361FCB /* Pods-RNNotificationBanner.release.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
