@@ -103,8 +103,8 @@ class NotificationBanner extends PureComponent {
       if (props.icon && props.icon.props) {
         let icon = props.icon.props;
 
-        let glyph = RNVectorHelper.Resolve(icon.family, icon.name);
-        props.icon = Object.assign({}, icon, { glyph: glyph });
+        let vectorIcon = RNVectorHelper.Resolve(icon.family, icon.name);
+        props.icon = Object.assign({}, icon, vectorIcon);
       }
     } else {
       props.icon = undefined;
