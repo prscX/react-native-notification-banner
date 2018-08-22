@@ -49,9 +49,9 @@ public class RNNotificationBannerModule extends ReactContextBaseJavaModule {
     int titleSize = props.getInt("titleSize");
     String titleColor = props.getString("titleColor");
 
-    String subTitle = props.getString("title");
-    int subTitleSize = props.getInt("titleSize");
-    String subTitleColor = props.getString("titleColor");
+    String subTitle = props.getString("subTitle");
+    int subTitleSize = props.getInt("subTitleSize");
+    String subTitleColor = props.getString("subTitleColor");
 
     int duration = props.getInt("duration");
     String tintColorValue = props.getString("tintColor");
