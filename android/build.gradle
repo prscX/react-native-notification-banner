@@ -37,10 +37,8 @@ repositories {
 }
 
 dependencies {
-    def supportLibVersion = safeExtGet('supportLibVersion', '27.0.2')
-
     compile project(':react-native-vector-icons')
     compile 'com.facebook.react:react-native:+'
-    compile 'com.android.support:appcompat-v7:$supportLibVersion'
+    compile "com.android.support:appcompat-v7:${safeExtGet('supportLibVersion', '27.0.2')}"
     compile 'com.tapadoo.android:alerter:2.0.6'
 }
