@@ -12,13 +12,17 @@ buildscript {
 
 apply plugin: 'com.android.library'
 
+def safeExtGet(prop, fallback) {
+    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+}
+
 android {
-    compileSdkVersion 27
-    buildToolsVersion "27.0.3"
+    compileSdkVersion safeExtGet('compileSdkVersion', 27)
+    buildToolsVersion safeExtGet('buildToolsVersion', '27.0.3')
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 27
+        minSdkVersion safeExtGet('minSdkVersion', 16)
+        targetSdkVersion safeExtGet('targetSdkVersion', 27)
         versionCode 1
         versionName "1.0"
     }
@@ -35,6 +39,6 @@ repositories {
 dependencies {
     compile project(':react-native-vector-icons')
     compile 'com.facebook.react:react-native:+'
-    compile 'com.android.support:appcompat-v7:27.0.2'
+    compile "com.android.support:appcompat-v7:${safeExtGet('supportLibVersion', '27.0.2')}"
     compile 'com.tapadoo.android:alerter:2.0.6'
 }
