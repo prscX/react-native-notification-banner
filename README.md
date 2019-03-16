@@ -108,6 +108,8 @@ RNNotificationBanner.Show({ title: "Message", subTitle: "Message", withIcon: tru
 | `tintColor` | `HEX-COLOR` |         | Specify tint color of banner                                                   |  |
 | `withIcon` | `bool` |         | Enable/Disable icon                                                   |  |
 | `icon` | `RNVectorIcon` |         | Specify banner icon                                                  |  |
+| `duration` | `int` |         | Specify duration to show banner                                                   |  |
+| `enableProgress` | `bool` |    false     | Specify to show progress on banner                                                   |  |
 | `onClick`    | `func`     |         | Specify onClick callback                                        |  |
 | `onHide`      | `func`     |         | Specify onHide callback
 
