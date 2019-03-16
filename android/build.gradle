@@ -37,8 +37,8 @@ repositories {
 }
 
 dependencies {
-    compile project(':react-native-vector-icons')
-    compile 'com.facebook.react:react-native:+'
-    compile "com.android.support:appcompat-v7:${safeExtGet('supportLibVersion', '27.0.2')}"
-    compile 'com.tapadoo.android:alerter:2.0.6'
+    implementation project(':react-native-vector-icons')
+    implementation 'com.facebook.react:react-native:+'
+    implementation "com.android.support:appcompat-v7:${safeExtGet('supportLibVersion', '27.0.2')}"
+    implementation 'com.tapadoo.android:alerter:2.0.6'
 }

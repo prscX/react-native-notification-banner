@@ -25,6 +25,7 @@ class NotificationBanner extends PureComponent {
     subTitleColor: PropTypes.string,
 
     duration: PropTypes.number,
+    enableProgress: PropTypes.bool,
     tintColor: PropTypes.string,
 
     withIcon: PropTypes.bool,
@@ -48,6 +49,7 @@ class NotificationBanner extends PureComponent {
     subTitleColor: "",
 
     duration: 0,
+    enableProgress: false,
 
     tintColor: "",
     withIcon: true,
@@ -89,6 +91,8 @@ class NotificationBanner extends PureComponent {
 
     if (props.duration === undefined)
       props.duration = NotificationBanner.defaultProps.duration;
+    if (props.enableProgress === undefined)
+      props.enableProgress = NotificationBanner.defaultProps.enableProgress;
 
     if (props.tintColor === undefined)
       props.tintColor = NotificationBanner.defaultProps.tintColor;
@@ -111,13 +115,17 @@ class NotificationBanner extends PureComponent {
     }
 
     let _onClick = () => {
-      props.onClick && props.onClick()
-    }
+      props.onClick && props.onClick();
+    };
     let _onHide = () => {
-      props.onHide && props.onHide()
-    }
+      props.onHide && props.onHide();
+    };
 
     RNNotificationBanner.Show(props, _onClick, _onHide);
+  }
+
+  static Dismiss() {
+    RNNotificationBanner.Dismiss();
   }
 
   static successStyle = {
@@ -150,7 +158,7 @@ class NotificationBanner extends PureComponent {
         name={"x-circle"}
         size={22}
         color={"#FFFFFF"}
-        family={"Feather"}
+        family={"Foundation"}
       />
     )
   };

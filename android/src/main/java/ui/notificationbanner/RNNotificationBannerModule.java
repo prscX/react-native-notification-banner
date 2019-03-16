@@ -54,6 +54,7 @@ public class RNNotificationBannerModule extends ReactContextBaseJavaModule {
     String subTitleColor = props.getString("subTitleColor");
 
     int duration = props.getInt("duration");
+    boolean enableProgress = props.getBoolean("enableProgress");
     String tintColorValue = props.getString("tintColor");
 
     boolean dismissable = props.getBoolean("dismissable");
@@ -86,13 +87,11 @@ public class RNNotificationBannerModule extends ReactContextBaseJavaModule {
       tintColor = Color.parseColor(tintColorValue);
     }
 
-      Alerter alerter = Alerter.create(getCurrentActivity());
+    Alerter alerter = Alerter.create(getCurrentActivity());
       alerter = alerter.setTitle(title);
       alerter = alerter.setText(subTitle);
 
-      final Alerter dismissAlerter = alerter;
-
-      if (iconDrawable != null) {
+      if (iconDrawable != null && enableProgress == false) {
         alerter = alerter.setIcon(iconDrawable);
       } else {
         alerter = alerter.hideIcon();
@@ -130,11 +129,24 @@ public class RNNotificationBannerModule extends ReactContextBaseJavaModule {
         }
       });
 
+      if (enableProgress) {
+        alerter.enableProgress(true);
+        alerter.setProgressColorInt(Color.WHITE);
+      }
+
+      if (duration != 0) {
+        alerter.setDuration(duration);
+      }
+
       alerter.show();
   }
 
+  @ReactMethod
+  public void Dismiss() {
+    Alerter.clearCurrent(getCurrentActivity());
+  }
 
-  @TargetApi(21) 
+  @TargetApi(21)
   private Drawable generateVectorIcon(ReadableMap icon) {
     StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
     StrictMode.setThreadPolicy(policy);
@@ -164,7 +176,7 @@ public class RNNotificationBannerModule extends ReactContextBaseJavaModule {
     paint.setTextSize(fontSize);
     paint.setAntiAlias(true);
     Rect textBounds = new Rect();
-    paint.getTextBounds(glyph, 0, glyph.length(), textBounds);
+      paint.getTextBounds(glyph, 0, glyph.length(), textBounds);
  
     Bitmap bitmap = Bitmap.createBitmap(textBounds.width(), textBounds.height(), Bitmap.Config.ARGB_8888);
     Canvas canvas = new Canvas(bitmap);

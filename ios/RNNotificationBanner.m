@@ -6,6 +6,8 @@
 RCTResponseSenderBlock _onClickCallback = nil;
 RCTResponseSenderBlock _onHideCallback = nil;
 
+Banner *_banner = nil;
+
 - (dispatch_queue_t)methodQueue
 {
     return dispatch_get_main_queue();
@@ -29,6 +31,7 @@ RCT_EXPORT_METHOD(Show:(NSDictionary *)props onClick:(RCTResponseSenderBlock)onC
     NSString *subTitleColor = [props objectForKey: @"subTitleColor"];
 
     NSNumber *duration = [props objectForKey: @"duration"];
+    NSNumber *enableProgress = [props objectForKey: @"enableProgress"];
     NSString *tintColorValue = [props objectForKey: @"tintColor"];
     
     NSNumber *withIcon = [props objectForKey: @"withIcon"];
@@ -56,27 +59,36 @@ RCT_EXPORT_METHOD(Show:(NSDictionary *)props onClick:(RCTResponseSenderBlock)onC
     //        style.titleFont = [UIFont systemFontOfSize: [titleSize intValue]];
     //    }
     
-    Banner *banner = [[Banner alloc] initWithTitle:title subtitle:subTitle image:drawable backgroundColor:tintColor didTapBlock:nil];
+    _banner = [[Banner alloc] initWithTitle:title subtitle:subTitle image:drawable enableProgress:[enableProgress boolValue] backgroundColor:tintColor didTapBlock:nil];
     
     if (titleColor != nil) {
-        banner.titleLabel.textColor = titleColor;
+        _banner.titleLabel.textColor = titleColor;
     }
-    banner.didTapBlock = ^{
+    _banner.didTapBlock = ^{
         if (_onClickCallback != nil) _onClickCallback(@[]);
         
         _onClickCallback = nil;
         _onHideCallback = nil;
     };
-    banner.didDismissBlock = ^{
+    _banner.didDismissBlock = ^{
         if (_onHideCallback != nil) _onHideCallback(@[]);
         
         _onClickCallback = nil;
         _onHideCallback = nil;
     };
-    
-    [banner show];
+
+    if ([duration intValue] == 0) {
+        [_banner show];
+    } else {
+        [_banner showWithDuration: [duration intValue]];
+    }
 }
 
+RCT_EXPORT_METHOD(Dismiss) {
+    if (_banner == nil) return;
+    
+    [_banner dismiss];
+}
 
 - (UIImage *) generateVectorIcon: (NSDictionary *) icon {
     NSString *family = [icon objectForKey: @"family"];

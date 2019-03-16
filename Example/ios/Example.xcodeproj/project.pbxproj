@@ -354,7 +354,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = CE91FE2820FF60AD00EBFE38 /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 0F3B36547C3C2CC3060475E614BCBF32;
+			remoteGlobalIDString = 1F9AC92037839D210A41BA5786E79D5B;
 			remoteInfo = BRYXBanner;
 		};
 		CE91FE7F20FF7B9200EBFE38 /* PBXContainerItemProxy */ = {

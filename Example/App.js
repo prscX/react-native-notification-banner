@@ -28,7 +28,11 @@ export default class App extends Component<Props> {
           <Text>{"Normal"}</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => {
-            RNNotificationBanner.Info({ title: "Message", subTitle: "Sub Message" });
+            setTimeout(() => {
+              RNNotificationBanner.Dismiss()
+            }, 2000)
+
+            RNNotificationBanner.Info({ title: "Message", subTitle: "Sub Message", duration: 10000, enableProgress: true, dismissable: false });
           }}>
           <Text>{"Info"}</Text>
         </TouchableOpacity>
