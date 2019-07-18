@@ -1,14 +1,19 @@
-import React, { PureComponent } from "react";
-import { findNodeHandle, ViewPropTypes, NativeModules, Platform } from "react-native";
-import PropTypes from "prop-types";
+import React, { PureComponent } from 'react'
+import {
+  findNodeHandle,
+  ViewPropTypes,
+  NativeModules,
+  Platform
+} from 'react-native'
+import PropTypes from 'prop-types'
 
-import FontAwesome from "react-native-vector-icons/FontAwesome";
-import Feather from "react-native-vector-icons/Feather";
-import EvilIcons from "react-native-vector-icons/EvilIcons";
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import Feather from 'react-native-vector-icons/Feather'
+import EvilIcons from 'react-native-vector-icons/EvilIcons'
 
-import RNVectorHelper from "./RNVectorHelper";
+import RNVectorHelper from './RNVectorHelper'
 
-const { RNNotificationBanner } = NativeModules;
+const { RNNotificationBanner } = NativeModules
 
 class NotificationBanner extends PureComponent {
   static propTypes = {
@@ -35,32 +40,32 @@ class NotificationBanner extends PureComponent {
 
     onClick: PropTypes.func,
     onHide: PropTypes.func
-  };
+  }
 
   static defaultProps = {
     type: 0,
 
-    title: "",
+    title: '',
     titleSize: 0,
-    titleColor: "",
+    titleColor: '',
 
-    subTitle: "",
+    subTitle: '',
     subTitleSize: 0,
-    subTitleColor: "",
+    subTitleColor: '',
 
     duration: 0,
     enableProgress: false,
 
-    tintColor: "",
+    tintColor: '',
     withIcon: true,
 
     dismissable: true
-  };
+  }
 
   static Duration = {
     Short: 0,
     Long: 1
-  };
+  }
 
   static Types = {
     Normal: 0,
@@ -68,176 +73,178 @@ class NotificationBanner extends PureComponent {
     Success: 2,
     Warn: 3,
     Error: 4
-  };
+  }
 
   static Show(props) {
-    if (!props) props = {};
+    if (!props) props = {}
     if (props.type === undefined)
-      props.type = NotificationBanner.defaultProps.type;
+      props.type = NotificationBanner.defaultProps.type
 
     if (props.title === undefined)
-      props.title = NotificationBanner.defaultProps.title;
+      props.title = NotificationBanner.defaultProps.title
     if (props.titleSize === undefined)
-      props.titleSize = NotificationBanner.defaultProps.titleSize;
+      props.titleSize = NotificationBanner.defaultProps.titleSize
     if (props.titleColor === undefined)
-      props.titleColor = NotificationBanner.defaultProps.titleColor;
+      props.titleColor = NotificationBanner.defaultProps.titleColor
 
     if (props.subTitle === undefined)
-      props.subTitle = NotificationBanner.defaultProps.subTitle;
+      props.subTitle = NotificationBanner.defaultProps.subTitle
     if (props.subTitleSize === undefined)
-      props.subTitleSize = NotificationBanner.defaultProps.subTitleSize;
+      props.subTitleSize = NotificationBanner.defaultProps.subTitleSize
     if (props.subTitleColor === undefined)
-      props.subTitleColor = NotificationBanner.defaultProps.subTitleColor;
+      props.subTitleColor = NotificationBanner.defaultProps.subTitleColor
 
     if (props.duration === undefined)
-      props.duration = NotificationBanner.defaultProps.duration;
+      props.duration = NotificationBanner.defaultProps.duration
     if (props.enableProgress === undefined)
-      props.enableProgress = NotificationBanner.defaultProps.enableProgress;
+      props.enableProgress = NotificationBanner.defaultProps.enableProgress
 
     if (props.tintColor === undefined)
-      props.tintColor = NotificationBanner.defaultProps.tintColor;
+      props.tintColor = NotificationBanner.defaultProps.tintColor
     if (props.withIcon === undefined)
-      props.withIcon = NotificationBanner.defaultProps.withIcon;
+      props.withIcon = NotificationBanner.defaultProps.withIcon
 
     if (props.dismissable === undefined) {
-      props.dismissable = NotificationBanner.defaultProps.dismissable;
+      props.dismissable = NotificationBanner.defaultProps.dismissable
     }
 
     if (props.withIcon) {
       if (props.icon && props.icon.props) {
-        let icon = props.icon.props;
+        let icon = props.icon.props
 
-        let vectorIcon = RNVectorHelper.Resolve(icon.family, icon.name);
-        props.icon = Object.assign({}, icon, vectorIcon);
+        let vectorIcon = RNVectorHelper.Resolve(icon.family, icon.name)
+        props.icon = Object.assign({}, icon, vectorIcon)
       }
     } else {
-      props.icon = undefined;
+      props.icon = undefined
     }
 
     let _onClick = () => {
-      props.onClick && props.onClick();
-    };
+      props.onClick && props.onClick()
+    }
     let _onHide = () => {
-      props.onHide && props.onHide();
-    };
+      props.onHide && props.onHide()
+    }
 
-    RNNotificationBanner.Show(props, _onClick, _onHide);
+    RNNotificationBanner.Show(props, _onClick, _onHide)
   }
 
   static Dismiss() {
-    RNNotificationBanner.Dismiss();
+    RNNotificationBanner.Dismiss()
   }
 
   static successStyle = {
-    tintColor: "#4b994f",
+    tintColor: '#4b994f',
     icon: (
       <Feather
-        name={"check-circle"}
+        name={'check-circle'}
         size={22}
-        color={"#FFFFFF"}
-        family={"Feather"}
+        color={'#FFFFFF'}
+        family={'Feather'}
       />
     )
-  };
+  }
   static Success(props) {
-    if (!props) props = {};
+    if (!props) props = {}
     if (props.tintColor === undefined)
-      props.tintColor = NotificationBanner.successStyle.tintColor;
+      props.tintColor = NotificationBanner.successStyle.tintColor
     if (props.icon === undefined)
-      props.icon = NotificationBanner.successStyle.icon;
+      props.icon = NotificationBanner.successStyle.icon
 
-    props.type = NotificationBanner.Types.Success;
+    props.type = NotificationBanner.Types.Success
 
-    NotificationBanner.Show(props);
+    NotificationBanner.Show(props)
   }
 
   static errorStyle = {
-    tintColor: "#d81919",
+    tintColor: '#d81919',
     icon: (
       <Feather
-        name={"x-circle"}
+        name={'x-circle'}
         size={22}
-        color={"#FFFFFF"}
-        family={"Foundation"}
+        color={'#FFFFFF'}
+        family={'Foundation'}
       />
     )
-  };
+  }
   static Error(props) {
-    if (!props) props = {};
+    if (!props) props = {}
     if (props.tintColor === undefined)
-      props.tintColor = NotificationBanner.errorStyle.tintColor;
+      props.tintColor = NotificationBanner.errorStyle.tintColor
     if (props.icon === undefined)
-      props.icon = NotificationBanner.errorStyle.icon;
+      props.icon = NotificationBanner.errorStyle.icon
 
-    props.type = NotificationBanner.Types.Error;
+    props.type = NotificationBanner.Types.Error
 
-    NotificationBanner.Show(props);
+    NotificationBanner.Show(props)
   }
 
   static infoStyle = {
-    tintColor: "#5162bc",
+    tintColor: '#5162bc',
     icon: (
-      <Feather name={"info"} size={22} color={"#FFFFFF"} family={"Feather"} />
+      <Feather
+        name={'info'}
+        size={22}
+        color={'#FFFFFF'}
+        family={'MaterialIcons'}
+      />
     )
-  };
+  }
   static Info(props) {
-    if (!props) props = {};
+    if (!props) props = {}
     if (props.tintColor === undefined)
-      props.tintColor = NotificationBanner.infoStyle.tintColor;
-    if (props.icon === undefined)
-      props.icon = NotificationBanner.infoStyle.icon;
+      props.tintColor = NotificationBanner.infoStyle.tintColor
+    if (props.icon === undefined) props.icon = NotificationBanner.infoStyle.icon
 
-    props.type = NotificationBanner.Types.Info;
+    props.type = NotificationBanner.Types.Info
 
-    NotificationBanner.Show(props);
+    NotificationBanner.Show(props)
   }
 
   static warnStyle = {
-    tintColor: "#feb119",
+    tintColor: '#feb119',
     icon: (
       <Feather
-        name={"minus-circle"}
+        name={'minus-circle'}
         size={22}
-        color={"#FFFFFF"}
-        family={"Feather"}
+        color={'#FFFFFF'}
+        family={'Feather'}
       />
     )
-  };
+  }
   static Warn(props) {
-    if (!props) props = {};
+    if (!props) props = {}
     if (props.tintColor === undefined)
-      props.tintColor = NotificationBanner.warnStyle.tintColor;
-    if (props.icon === undefined)
-      props.icon = NotificationBanner.warnStyle.icon;
+      props.tintColor = NotificationBanner.warnStyle.tintColor
+    if (props.icon === undefined) props.icon = NotificationBanner.warnStyle.icon
 
-    props.type = NotificationBanner.Types.Warn;
+    props.type = NotificationBanner.Types.Warn
 
-    NotificationBanner.Show(props);
+    NotificationBanner.Show(props)
   }
 
   static normalStyle = {
-    tintColor: "#484d51"
-  };
+    tintColor: '#484d51'
+  }
   static Normal(props) {
-    if (!props) props = {};
+    if (!props) props = {}
     if (props.tintColor === undefined)
-      props.tintColor = NotificationBanner.normalStyle.tintColor;
+      props.tintColor = NotificationBanner.normalStyle.tintColor
 
-    props.type = NotificationBanner.Types.Normal;
+    props.type = NotificationBanner.Types.Normal
 
-    NotificationBanner.Show(props);
+    NotificationBanner.Show(props)
   }
 
-  componentDidMount() {}
+  componentDidMount() { }
 
-  componentDidUpdate() {}
+  componentDidUpdate() { }
 
-  show() {}
+  show() { }
 
   render() {
-    return null;
+    return null
   }
 }
 
-
-export { NotificationBanner as RNNotificationBanner };
+export { NotificationBanner as RNNotificationBanner }
