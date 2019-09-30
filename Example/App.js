@@ -16,6 +16,22 @@ import {
 import { RNNotificationBanner } from "react-native-notification-banner";
 import Icon from "react-native-vector-icons/FontAwesome";
 
+Icon.loadFont('AntDesign.ttf')
+Icon.loadFont('Entypo.ttf')
+Icon.loadFont('EvilIcons.ttf')
+Icon.loadFont('Feather.ttf')
+Icon.loadFont('FontAwesome.ttf')
+Icon.loadFont('FontAwesome5_Brands.ttf')
+Icon.loadFont('FontAwesome5_Regular.ttf')
+Icon.loadFont('FontAwesome5_Solid.ttf')
+Icon.loadFont('Foundation.ttf')
+Icon.loadFont('Ionicons.ttf')
+Icon.loadFont('MaterialIcons.ttf')
+Icon.loadFont('MaterialCommunityIcons.ttf')
+Icon.loadFont('SimpleLineIcons.ttf')
+Icon.loadFont('Octicons.ttf')
+Icon.loadFont('Zocial.ttf')
+
 type Props = {};
 export default class App extends Component<Props> {
   render() {
