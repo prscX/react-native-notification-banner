@@ -1,6 +1,6 @@
 {
   "name": "react-native-notification-banner",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ReactNative: Native Notification Banner",
   "main": "js/RNNotificationBanner.js",
   "homepage": "https://github.com/prscX/react-native-notification-banner.git",
