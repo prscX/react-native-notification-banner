@@ -7,11 +7,8 @@ import {
 } from 'react-native'
 import PropTypes from 'prop-types'
 
-import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import RNImageHelper from 'react-native-image-helper'
 import Feather from 'react-native-vector-icons/Feather'
-import EvilIcons from 'react-native-vector-icons/EvilIcons'
-
-import RNVectorHelper from './RNVectorHelper'
 
 const { RNNotificationBanner } = NativeModules
 
@@ -112,7 +109,7 @@ class NotificationBanner extends PureComponent {
       if (props.icon && props.icon.props) {
         let icon = props.icon.props
 
-        let vectorIcon = RNVectorHelper.Resolve(icon.family, icon.name)
+        let vectorIcon = RNImageHelper.Resolve(icon.family, icon.name)
         props.icon = Object.assign({}, icon, vectorIcon)
       }
     } else {

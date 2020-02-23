@@ -1,6 +1,6 @@
 {
   "name": "react-native-notification-banner",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "ReactNative: Native Notification Banner",
   "main": "js/RNNotificationBanner.js",
   "homepage": "https://github.com/prscX/react-native-notification-banner.git",
@@ -16,7 +16,6 @@
   ],
   "author": "Pranav Raj Singh Chauhan",
   "dependencies": {
-    "react-native-vector-icons": "6.6.0"
   },
   "devDependencies": {
     "prettier-pack": "0.0.8"
