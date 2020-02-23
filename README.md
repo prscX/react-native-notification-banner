@@ -38,6 +38,52 @@ A simple lightweight dropdown banner library using creates native capabilities
 `$ yarn add react-native-notification-banner`
 
 
+## **RN61 >= RNBAS V2 >**
+
+- Add `react-native-image-helper` your app package.json
+
+`$ npm install react-native-image-helper --save`
+
+- Add `react-native-vector-icons` to your app package.json and configure it as per their installation steps
+
+`$ npm install react-native-vector-icons --save`
+
+- **iOS**
+
+	- Add the following to your `Podfile` -> `ios/Podfile` and run pod update:
+
+	```
+  use_native_modules!
+
+  pod 'RNNotificationBanner', :path => '../node_modules/react-native-notification-banner/ios'
+
+  use_frameworks!
+
+  pod 'BRYXBanner', :git => 'https://github.com/prscX/BRYXBanner.git', :branch => 'master'
+
+  post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      if target.name.include?('BRYXBanner')
+        target.build_configurations.each do |config|
+          config.build_settings['SWIFT_VERSION'] = '4.2'
+        end
+      end
+    end
+  end
+	```
+
+- **Android**
+
+Please add below snippet into your app `build.gradle`
+
+```
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
 ## **RN60 >= RNNB V1 >**
 
 `$ yarn add react-native-vector-icons`
