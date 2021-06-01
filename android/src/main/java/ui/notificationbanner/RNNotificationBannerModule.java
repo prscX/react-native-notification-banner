@@ -13,6 +13,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.StrictMode;
 import android.view.View;
+import android.widget.TextView;
 import java.lang.reflect.Method;
 
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -21,6 +22,7 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.views.text.ReactFontManager;
+import com.tapadoo.alerter.Alert;
 import com.tapadoo.alerter.Alerter;
 import com.tapadoo.alerter.OnHideAlertListener;
 
@@ -48,17 +50,19 @@ public class RNNotificationBannerModule extends ReactContextBaseJavaModule {
 
     String title = props.getString("title");
     int titleSize = props.getInt("titleSize");
-    String titleColor = props.getString("titleColor");
+    String titleColorValue = props.getString("titleColor");
 
     String subTitle = props.getString("subTitle");
     int subTitleSize = props.getInt("subTitleSize");
-    String subTitleColor = props.getString("subTitleColor");
+    String subTitleColorValue = props.getString("subTitleColor");
 
     int duration = props.getInt("duration");
     boolean enableProgress = props.getBoolean("enableProgress");
     String tintColorValue = props.getString("tintColor");
 
     boolean dismissable = props.getBoolean("dismissable");
+
+    boolean isSwipeToDismissEnabled = props.getBoolean("isSwipeToDismissEnabled");
 
     boolean withIcon = props.getBoolean("withIcon");
     ReadableMap icon = props.hasKey("icon") ? props.getMap("icon") : null;
@@ -83,14 +87,6 @@ public class RNNotificationBannerModule extends ReactContextBaseJavaModule {
       }
     }
 
-    if (titleColor != null && titleColor.length() > 0) {
-//      config.setTextColor(Color.parseColor(titleColor));
-    }
-    if (titleSize != 0) {
-//      config.setTextSize(titleSize);
-    }
-
-
     if (tintColorValue != null && tintColorValue.length() > 0) {
       tintColor = Color.parseColor(tintColorValue);
     }
@@ -111,6 +107,10 @@ public class RNNotificationBannerModule extends ReactContextBaseJavaModule {
 
       if (!dismissable) {
         alerter = alerter.setDismissable(dismissable);
+      }
+
+      if (isSwipeToDismissEnabled) {
+        alerter.enableSwipeToDismiss();
       }
 
       alerter = alerter.setOnClickListener(new View.OnClickListener() {
@@ -146,7 +146,19 @@ public class RNNotificationBannerModule extends ReactContextBaseJavaModule {
         alerter.setDuration(duration);
       }
 
-      alerter.show();
+      Alert activeAlert = alerter.show();
+
+      if (activeAlert == null) {
+        return;
+      }
+
+      String regexHexColor = "^#(?:[0-9a-fA-F]{3}){1,2}$";
+      if (titleColorValue != null && titleColorValue.matches(regexHexColor)) {
+        activeAlert.getTitle().setTextColor(Color.parseColor(titleColorValue));
+      }
+      if(subTitleColorValue != null && subTitleColorValue.matches(regexHexColor)){
+        activeAlert.getText().setTextColor(Color.parseColor(subTitleColorValue));
+      }
   }
 
   @ReactMethod

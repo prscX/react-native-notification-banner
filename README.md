@@ -179,7 +179,15 @@ import { RNNotificationBanner } from 'react-native-notification-banner';
 import Icon from 'react-native-vector-icons/FontAwesome'
 let copy = <Icon name="copy" size={24} color="#FFFFFF" family={"FontAwesome"} />;
 
-RNNotificationBanner.Show({ title: "Message", subTitle: "Message", withIcon: true, icon: copy})
+RNNotificationBanner.Show({
+  title: "Message",
+  subTitle: "Message",
+  withIcon: true,
+  icon: copy,
+  titleColor: "#FFFFFF",
+  subTitleColor: "#FFFFFF",
+  isSwipeToDismissEnabled: true,
+})
 
 ```
 

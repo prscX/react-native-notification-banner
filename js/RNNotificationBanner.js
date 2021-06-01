@@ -34,6 +34,7 @@ class NotificationBanner extends PureComponent {
     icon: PropTypes.object,
 
     dismissable: PropTypes.bool,
+    isSwipeToDismissEnabled: PropTypes.bool,
 
     onClick: PropTypes.func,
     onHide: PropTypes.func
@@ -56,7 +57,8 @@ class NotificationBanner extends PureComponent {
     tintColor: '',
     withIcon: true,
 
-    dismissable: true
+    dismissable: true,
+    isSwipeToDismissEnabled: true
   }
 
   static Duration = {
@@ -103,6 +105,10 @@ class NotificationBanner extends PureComponent {
 
     if (props.dismissable === undefined) {
       props.dismissable = NotificationBanner.defaultProps.dismissable
+    }
+
+    if (props.isSwipeToDismissEnabled === undefined) {
+      props.isSwipeToDismissEnabled = NotificationBanner.defaultProps.isSwipeToDismissEnabled
     }
 
     if (props.withIcon) {
