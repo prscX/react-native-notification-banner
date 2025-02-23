@@ -6,11 +6,6 @@ buildscript {
     if (project == rootProject) {
         repositories {
             google()
-            jcenter()
-        }
-
-        dependencies {
-            classpath("com.android.tools.build:gradle:3.5.3")
         }
     }
 }
@@ -44,5 +39,5 @@ repositories {
 dependencies {
     implementation 'com.facebook.react:react-native:+'
     implementation "com.android.support:appcompat-v7:${safeExtGet('supportLibVersion', '27.0.2')}"
-    implementation 'com.github.tapadoo:alerter:7.2.1'
+    implementation 'com.github.tapadoo:alerter:7.2.4'
 }

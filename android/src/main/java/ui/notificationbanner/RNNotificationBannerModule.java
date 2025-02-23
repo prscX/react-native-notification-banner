@@ -87,6 +87,14 @@ public class RNNotificationBannerModule extends ReactContextBaseJavaModule {
       }
     }
 
+    if (titleColor != null && titleColor.length() > 0) {
+//      config.setTextColor(Color.parseColor(titleColor));
+    }
+    if (titleSize != 0) {
+//      config.setTextSize(titleSize);
+    }
+
+
     if (tintColorValue != null && tintColorValue.length() > 0) {
       tintColor = Color.parseColor(tintColorValue);
     }
