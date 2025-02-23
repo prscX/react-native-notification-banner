@@ -37,6 +37,65 @@ A simple lightweight dropdown banner library using creates native capabilities
 
 `$ yarn add react-native-notification-banner`
 
+## **ReactNative >= .77 && ReactNativeNotificationBanner > V3**
+
+- Add `react-native-image-helper` your app package.json
+
+`$ npm install react-native-image-helper --save`
+
+- Add `react-native-vector-icons` to your app package.json and configure it as per their installation steps. It supports till V10
+
+`$ npm install react-native-vector-icons --save`
+
+- **iOS**
+
+ 	- Add the following to your `Podfile` -> `ios/Podfile` and run pod update:
+
+ ```
+  #Modify below snippet outside your target project tag
+  linkage = ENV['USE_FRAMEWORKS']
+  if linkage != nil
+    Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
+    use_frameworks! :linkage => linkage.to_sym
+  else
+    use_frameworks!
+  end
+
+  #Add below code in your target project tag
+  pod 'RNNotificationBanner', :path => '../node_modules/react-native-notification-banner/ios'
+
+  pod 'BRYXBanner', :git => 'https://github.com/prscX/BRYXBanner.git', :branch => 'master'
+
+  post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      if target.name.include?('BRYXBanner')
+        target.build_configurations.each do |config|
+          config.build_settings['SWIFT_VERSION'] = '4.2'
+        end
+      end
+    end
+
+    # Ensure the Swift version is set for all targets
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['SWIFT_VERSION'] = '5.0'
+      end
+    end
+  end
+ ```
+
+- **Android**
+
+Please add below snippet into your app `build.gradle`
+
+```
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
 
 ## **RN61 >= RNBAS V2 >**
 
