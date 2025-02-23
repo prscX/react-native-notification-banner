@@ -12,8 +12,8 @@
   "dependencies": {
     "react": "18.3.1",
     "react-native": "0.77.0",
-    "react-native-image-helper": "0.0.3",
-    "react-native-notification-banner": "2.0.0",
+    "react-native-image-helper": "0.0.4",
+    "react-native-notification-banner": "3.0.0",
     "react-native-vector-icons": "10.2.0"
   },
   "devDependencies": {
