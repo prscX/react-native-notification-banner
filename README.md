@@ -37,7 +37,7 @@ A simple lightweight dropdown banner library using creates native capabilities
 
 `$ yarn add react-native-notification-banner`
 
-## **ReactNative >= .77 && ReactNativeNotificationBanner > V3**
+## **ReactNative >= 77 && ReactNativeNotificationBanner > V3**
 
 - Add `react-native-image-helper` your app package.json
 
